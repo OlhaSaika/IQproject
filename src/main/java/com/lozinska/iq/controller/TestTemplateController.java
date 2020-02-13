@@ -1,12 +1,12 @@
 package com.lozinska.iq.controller;
 
-import com.lozinska.iq.dto.TestResource;
-import com.lozinska.iq.entity.Test;
 import com.lozinska.iq.entity.TestTemplate;
 import com.lozinska.iq.service.TestTemplateService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -21,13 +21,13 @@ public class TestTemplateController {
     }
 
     @GetMapping
-    ResponseEntity<List<TestTemplate>> getAllTestTemplates(){
+    public ResponseEntity<List<TestTemplate>> getAllTestTemplates() {
         List<TestTemplate> result = testTemplateService.getTestTemplateList();
         return ResponseEntity.ok(result);
     }
 
     @PostMapping
-    ResponseEntity<List<TestTemplate>> createTestTemplateList(){
+    public ResponseEntity<List<TestTemplate>> createTestTemplateList() {
         List<TestTemplate> result = testTemplateService.createTestTemplateList();
         return ResponseEntity.ok(result);
     }

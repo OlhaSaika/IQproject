@@ -2,9 +2,13 @@ package com.lozinska.iq.dto;
 
 import com.lozinska.iq.entity.Test;
 import com.lozinska.iq.entity.User;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
+@Getter
+@Setter
 public class UserDTO {
 
     private Integer id;
@@ -16,46 +20,6 @@ public class UserDTO {
     private String userPhoto;
 
     private List<Test> tests;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserPassword() {
-        return userPassword;
-    }
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
-
-    public String getUserPhoto() {
-        return userPhoto;
-    }
-
-    public void setUserPhoto(String userPhoto) {
-        this.userPhoto = userPhoto;
-    }
-
-    public List<Test> getTests() {
-        return tests;
-    }
-
-    public void setTests(List<Test> tests) {
-        this.tests = tests;
-    }
 
     public static UserDTO changeUserToUserDTO (User user){
         UserDTO newUserDTO = new UserDTO();

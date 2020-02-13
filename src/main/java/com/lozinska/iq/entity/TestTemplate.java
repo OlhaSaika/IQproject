@@ -1,9 +1,14 @@
 package com.lozinska.iq.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
 @Entity
 @Table
 public class TestTemplate {
@@ -17,27 +22,4 @@ public class TestTemplate {
     @OneToMany
     private List<Question> questions = new ArrayList<>();
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getTestNumber() {
-        return testNumber;
-    }
-
-    public void setTestNumber(Integer testNumber) {
-        this.testNumber = testNumber;
-    }
-
-    public List<Question> getQuestions() {
-        return questions;
-    }
-
-    public void setQuestions(List<Question> questions) {
-        this.questions = questions;
-    }
 }

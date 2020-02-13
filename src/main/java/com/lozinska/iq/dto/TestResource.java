@@ -1,28 +1,17 @@
 package com.lozinska.iq.dto;
 
 import com.lozinska.iq.entity.Test;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class TestResource {
 
     private Integer id;
 
     private Integer testResult;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getTestResult() {
-        return testResult;
-    }
-
-    public void setTestResult(Integer testResult) {
-        this.testResult = testResult;
-    }
 
     public static TestResource of (Test test){
         TestResource testResource = new TestResource();

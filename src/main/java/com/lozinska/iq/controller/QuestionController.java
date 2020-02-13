@@ -23,14 +23,14 @@ public class QuestionController {
     }
 
     @GetMapping("/{questionID}")
-    ResponseEntity<QuestionDTO> getQuestionByID(@PathVariable Integer questionID) {
+    public ResponseEntity<QuestionDTO> getQuestionByID(@PathVariable Integer questionID) {
         Question question = questionService.getQuestionByID(questionID);
     return ResponseEntity.ok(changeQuestionToQuestionDTO(question));
     }
 
 
     @GetMapping
-    ResponseEntity<List<QuestionDTO>> getAllQuestions() {
+    public ResponseEntity<List<QuestionDTO>> getAllQuestions() {
         List<Question> result = questionService.getAllQuestions();
         List<QuestionDTO> resultDTO = new ArrayList<>();
         for (Question question : result) {
@@ -40,7 +40,7 @@ public class QuestionController {
     }
 
     @PostMapping
-    ResponseEntity<QuestionDTO> createQuestion(@RequestBody QuestionDTO questionDTO) {
+    public ResponseEntity<QuestionDTO> createQuestion(@RequestBody QuestionDTO questionDTO) {
         Question newQuestion = new Question();
         newQuestion.setQuestionBody(questionDTO.getQuestionBody());
         newQuestion.setAnswerBody(questionDTO.getAnswerBody());
@@ -53,7 +53,7 @@ public class QuestionController {
     }
 
     @PatchMapping
-    ResponseEntity<QuestionDTO> updateQuestion(@RequestBody QuestionDTO questionDTO) {
+    public ResponseEntity<QuestionDTO> updateQuestion(@RequestBody QuestionDTO questionDTO) {
         Question newQuestion = new Question();
         newQuestion.setId(questionDTO.getId());
         newQuestion.setQuestionBody(questionDTO.getQuestionBody());
@@ -66,7 +66,7 @@ public class QuestionController {
     }
 
     @DeleteMapping("/{questionID}")
-    ResponseEntity<String> deleteQuestion (@PathVariable Integer questionID){
+    public ResponseEntity<String> deleteQuestion(@PathVariable Integer questionID){
         questionService.deleteQuestion(questionID);
         return new ResponseEntity<>(HttpStatus.OK);
     }
