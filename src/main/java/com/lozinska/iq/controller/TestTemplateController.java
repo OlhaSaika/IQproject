@@ -2,6 +2,7 @@ package com.lozinska.iq.controller;
 
 import com.lozinska.iq.entity.TestTemplate;
 import com.lozinska.iq.service.TestTemplateService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,13 +13,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/testTemplate")
+@AllArgsConstructor
 public class TestTemplateController {
 
     private final TestTemplateService testTemplateService;
-
-    public TestTemplateController(TestTemplateService testTemplateService) {
-        this.testTemplateService = testTemplateService;
-    }
 
     @GetMapping
     public ResponseEntity<List<TestTemplate>> getAllTestTemplates() {

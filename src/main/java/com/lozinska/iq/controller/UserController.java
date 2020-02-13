@@ -51,8 +51,8 @@ public class UserController {
     @PostMapping
     public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO) {
         User newUser = new User();
-        newUser.setUserName(userDTO.getUserName());
-        newUser.setUserPassword(userDTO.getUserPassword());
+        newUser.setUsername(userDTO.getUsername());
+        newUser.setPassword(userDTO.getPassword());
         newUser.setUserPhoto(userDTO.getUserPhoto());
 //        newUser.setTests(userDTO.getTests());
 
@@ -65,8 +65,8 @@ public class UserController {
     public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO userDTO) {
         User newUser = new User();
         newUser.setId(userDTO.getId());
-        newUser.setUserName(userDTO.getUserName());
-        newUser.setUserPassword(userDTO.getUserPassword());
+        newUser.setUsername(userDTO.getUsername());
+        newUser.setPassword(userDTO.getPassword());
         newUser.setUserPhoto(userDTO.getUserPhoto());
         newUser.setTests(userDTO.getTests());
 

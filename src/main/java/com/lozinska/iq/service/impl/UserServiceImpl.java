@@ -6,7 +6,6 @@ import com.lozinska.iq.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -26,7 +25,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public List<User> getUserByUserName(String userName){
-        return userRepository.findAllByUserName(userName);
+        return userRepository.findByUsername(userName);
     }
 
     public User createUser(User user){
@@ -36,8 +35,8 @@ public class UserServiceImpl implements UserService {
     public User updateUser(User updatedUser){
         User user = getUserByID(updatedUser.getId());
         user.setUserPhoto(updatedUser.getUserPhoto());
-        user.setUserPassword(updatedUser.getUserPassword());
-        user.setUserName(updatedUser.getUserName());
+        user.setPassword(updatedUser.getPassword());
+        user.setUsername(updatedUser.getUsername());
         user.setTests(updatedUser.getTests());
         return userRepository.saveAndFlush(user);
     }
